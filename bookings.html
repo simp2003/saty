@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ddafd2;
+            color: #070707;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 60px; /* Adjust to account for footer */
+            flex: 1;
+            width: 100%;
+        }
+
+        .Booking-container {
+            background-color: rgba(179, 0, 110, 0.8);
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            max-width: 100%;
+            display: grid;
+            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+        }
+
+        .Booking-container label,
+        .Booking-container input,
+        .Booking-container select {
+            grid-column: span 2;
+        }
+
+        .Booking-container input,
+        .Booking-container select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            grid-column: span 2;
+        }
+
+        .Booking-container button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #000000;
+        }
+
+        .Booking-container button:hover {
+            background-color: rgba(179, 0, 110, 0.8);
+        }
+
+        .Booking-container a.cancel-button {
+            width: 48%;
+            padding: 10px;
+            background-color: #ff4b5c;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .Booking-container a.cancel-button:hover {
+            background-color: #d43f50;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        @media (max-width: 600px) {
+            .Booking-container {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <div class="Booking-container">
+            <h2>Book</h2>
+            <form id="Bookingsform" action="https://formspree.io/f/xgvwbzrl" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                
+                <label for="surname">Surname</label>
+                <input type="text" id="surname" name="surname" placeholder="Surname" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email@example.com" required>
+
+                <label for="cellphone">Cellphone</label>
+                <input type="text" id="cellphone" name="cellphone" placeholder="+27 12 345 6789" required>
+
+                <label for="ServiceType">Service Type</label>
+                <select name="ServiceType" id="ServiceType" required>
+                    <option value="" disabled selected>Select Service</option>
+                    <option value="Pedicure">Pedicure</option>
+                    <option value="Manicure">Manicure</option>
+                    <option value="Nail Removal">Nail Removal</option>
+                </select>
+
+                <label for="NailType">Nail Type</label>
+                <select name="NailType" id="NailType" required>
+                    <option value="" disabled selected>Select Nails</option>
+                    <option value="Acrylic">Acrylic</option>
+                    <option value="Gel">Gel</option>
+                </select>
+
+                <label for="NailShape">Nail Shape</label>
+                <select name="NailShape" id="NailShape" required>
+                    <option value="" disabled selected>Select Shape</option>
+                    <option value="Oval">Oval</option>
+                    <option value="Rounded">Rounded</option>
+                    <option value="Almond">Almond</option>
+                    <option value="Stiletto">Stiletto</option>
+                    <option value="Ballerina">Ballerina</option>
+                    <option value="Square">Square</option>
+                </select>
+
+                <label for="NailColour">Nail Colour</label>
+                <select name="NailColour" id="NailColour" required>
+                    <option value="" disabled selected>Select Colour</option>
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                    <option value="Pink">Pink</option>
+                    <option value="Brown">Brown</option>
+                    <option value="Purple">Purple</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Orange">Orange</option>
+                </select>
+
+                <label for="Extras">Extras</label>
+                <select name="Extras" id="Extras">
+                    <option value="" disabled selected>Select Extras</option>
+                    <option value="Diamond">Diamond</option>
+                    <option value="Glitter">Glitter</option>
+                    <option value="Shimmer Powder">Shimmer Powder</option>
+                    <option value="Curls">Curls</option>
+                    <option value="Nail Stickers">Nail Stickers</option>
+                    <option value="Nail Stencils">Nail Stencils</option>
+                </select>
+
+                <div class="button-container">
+                    <button type="submit">Book</button>
+                    <a href="homepage.html" class="cancel-button">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 SATY Information. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
