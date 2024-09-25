@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+ body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ddafd2;
+            padding: 0;
+            
+        }
+        header {
+            background-color:#a2005c ;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            max-height: 80px; /* Adjust height as needed */
+            cursor: pointer;
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: #ddafd2;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            color: #000000;
+        }
+        main {
+            padding: 20px;
+        }
+        /* Content Styles */
+        .content {
+            margin-top: 80px; /* Space for header */
+            padding: 20px;
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .services, .about {
+            margin-bottom: 40px;
+        }
+
+        .services h2, .about h2 {
+            margin-top: 0;
+            color: #b3006c;
+        }
+
+        /* Gallery Styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+            justify-content: center;
+            margin: 20px 0; /* Adjust spacing as needed */
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 300px; /* Adjust the maximum width as needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Optional: Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for better appearance */
+        }
+
+        /* Footer Styles */
+        .footer {
+            width: 100%;
+            background-color: #f8f8f8;
+            padding: 20px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .footer img {
+            width: 100px; /* Adjust as needed */
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger-menu div {
+            width: 30px;
+            height: 3px;
+            background-color: #000;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color:#ddafd2;
+            color: #000;
+            width: 250px;
+            height: 100%;
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            padding-top: 60px;
+            overflow: auto;
+        }
+
+        .menu a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu.active + .hamburger-menu div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu.active + .hamburger-menu div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu.active + .hamburger-menu div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Logout Button Styles */
+        .logout-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #b3006c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1002;
+        }
+
+        /* Logout Popup Styles */
+        .logout-popup {
+            display: none;
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            background-color: #b3006c;
+            color: #000;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1003;
+        }
+
+        .logout-popup button {
+            background-color: #b3006c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .logout-popup button:hover {
+            background-color: #a2005c;
+        }
+
+        .resized-image {
+            width: 50%; /* Adjust the width percentage as needed */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 400px; /* Optional: set a maximum width */
+        }
+    </style>
+</head>
+
+   
+    <div class="container">
+        
+    </div>
+
+    <!-- Header Container -->
+    <div class="header-container">
+        <header>
+            <a href="homepage.html"><img src="IMG-20240911-WA0008.jpg" alt="Company Logo" class="logo" style="max-height: 83px; margin-bottom: 2px; margin-right: 3px;"></a> <!-- Update the path to your logo image -->
+        <h1 style="margin-right: 450px;">Welcome To SATY Nails</h1>
+
+        <!-- Hamburger Menu Button -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="menu" id="sideMenu">
+        <a href="companyinfo.html">Company Info</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="nailsample.html">Nail Sample</a>
+        <a href="#logout" onclick="togglePopup()">Logout</a>
+    </div>
+
+        </header>
+        <body>
+        <div>
+
+   
+    
+    <!-- Logout Popup -->
+    <div class="logout-popup" id="logoutPopup">
+        <p>Are you sure you want to logout?</p>
+        <button onclick="logout()">Yes, Logout</button>
+        <button onclick="togglePopup()">Cancel</button>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('sideMenu');
+            menu.classList.toggle('active');
+        }
+
+        function togglePopup() {
+            var popup = document.getElementById('logoutPopup');
+            popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function logout() {
+            // Redirect to logout page or handle logout action
+            window.location.href = ' index.html'; // Update with the correct path
+        }
+
+        // Close popup when clicking outside or pressing ESC
+        window.onclick = function(event) {
+            var popup = document.getElementById('logoutPopup');
+            if (event.target == popup) {
+                popup.style.display = 'none';
+            }
+        };
+
+        window.onkeydown = function(event) {
+            if (event.key === 'Escape') {
+                var popup = document.getElementById('logoutPopup');
+                if (popup.style.display === 'block') {
+                    popup.style.display = 'none';
+                }
+            }
+        };
+    </script>
+
+<section class="gallery">
+    <img src="IMG_4878.jpg" alt="Nail Design 1">
+    <img src="IMG_4877.jpg" alt="Nail Design 2">
+    <img src="IMG_4870.jpg" alt="Nail Design 3">
+    <img src="IMG_4875.jpg" alt="Nail Design 4">
+</section>
+
+<main>
+    <!-- Main content goes here -->
+    
+
+    <section id="about">
+        <h2>SATY Nails – Where Beauty Meets Precision</h2>
+        <p>At Saty Nails, we are dedicated to providing you with exceptional nail care services in a relaxing and luxurious environment.<br> Our highly trained and friendly technicians use the latest techniques and high-quality products to ensure your nails are both beautiful and healthy.<br> Whether you're looking for a classic manicure or the latest trends in nail art, we have something for everyone.</p>
+    </section>
+    <section id="services">
+        <h2>Our Services Include:</h2>
+        <p>Manicures & Pedicures: Pamper yourself with our wide range of manicures and pedicures, from basic to deluxe spa treatments<br>Gel & Acrylic Nails: Enjoy long-lasting and flawless nails with our gel and acrylic options, expertly applied and tailored to your preferences.<br>
+            Nail Art & Design: Express yourself with custom nail designs that showcase your unique style, from subtle elegance to bold creativity.<br>
+            Nail Repair & Maintenance: We offer professional nail repair and regular maintenance to keep your nails looking their best.<br>
+            Cuticle & Hand Care Treatments: Enhance the health of your nails and skin with nourishing treatments for softer, smoother hands.<br>
+            Special Occasions & Group Bookings: Whether it's for a wedding, party, or simply a treat for friends, we offer group packages to make your day special.</p>
+
+    </section> 
+   
+    <section id="Question">
+        <h2>Why Choose Saty Nails?</h2>
+        <p>Clean, hygienic environment<br>
+            Experienced and skilled nail technicians<br>
+            High-quality, non-toxic products<br>
+            Affordable pricing with luxury service<br>
+            Personalized care tailored to your needs<br>
+            Visit Saty Nails for an unforgettable experience that will leave you feeling polished and confident!
+            </p>
+    </section> 
+  
+</main>
+    
+</body>
+</html>

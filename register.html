@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('IMG-20240911-WA0008.jpg'); /* Correct path to your image */
+            background-size: cover;
+            background-position: center center; /* Center the background image */
+            margin: 0;
+            color: #000000; /* Optional: change text color to ensure visibility against the background */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px; /* Adjust font size if needed */
+        }
+
+        .register-container {
+            background-color: rgba(179, 0, 110, 0.8); /* Semi-transparent background for readability */
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            margin-top: 100px; /* Adjust to account for the header height */
+            position: relative; /* Ensure the container adjusts below the header */
+            z-index: 1; /* Ensure it stays above the background */
+            margin-left: 430px;
+        }
+
+        .register-container h2 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .register-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .register-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .register-container button, .register-container a {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            color: #fcfcfc;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .register-container button {
+            background-color: #000000;
+        }
+
+        .register-container button:hover {
+            background-color: rgba(179, 0, 110, 0.8);
+        }
+
+        .register-container a.cancel-button {
+            background-color: #000000;
+            color: white;
+        }
+
+        .register-container a.cancel-button:hover {
+            background-color: #d43f50;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .register-container {
+                width: 90%;
+                margin-top: 70px; /* Adjust for smaller header */
+            }
+            header .logo {
+                /* width: 80px; Adjust logo size for smaller screens */
+            }   
+            header h1 {
+                font-size: 20px; /* Adjust font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="login_Page.html"><img src="IMG-20240911-WA0008.jpg" alt="Company Logo" class="logo" style="max-height: 83px; margin-bottom: 2px; margin-right: 3px;"></a> <!-- Update the path to your logo image -->
+        <h1>SATY Nails</h1>
+    </header>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form id="registerForm" action="/submit-register" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" name="surname" placeholder="Surname" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email@example.com" required>
+
+            <label for="cellphone">Cellphone</label>
+            <input type="text" id="cellphone" name="cellphone" placeholder="+27 12 345 6789" required>
+            
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="***************" required>
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="***************" required>
+            
+            <div class="button-group">
+                <button type="submit">Register</button>
+                <a href="login_Page.html" class="cancel-button">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
