@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Info</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #ddafd2;
+        }
+
+        /* Flexbox layout for the page */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Content will take available space */
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #a2005c;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            max-height: 80px;
+            cursor: pointer;
+        }
+
+        header h1 {
+            margin-right: auto;
+            margin-left: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .contact-section .icons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-section .icons-container a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-section .icons-container i {
+            font-size: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-section .icons-container i:hover {
+            transform: scale(1.1);
+        }
+
+        /* Embed Map Styles */
+        iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 450px;
+            border: 0;
+            margin: 20px auto;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-section .icons-container i {
+                font-size: 24px;
+            }
+
+            header h1 {
+                font-size: 18px;
+            }
+
+            iframe {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a href="homepage.html">
+            <img src="IMG-20240911-WA0008.jpg" alt="Company Logo" class="logo">
+        </a>
+        <h1>SATY Information</h1>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="content">
+        <h2>Welcome to SATY Information. Here you can find details about our services and company information.</h2>
+
+        <section id="contact">
+            <h3>Contact Us</h3>
+            <div class="contact-section">
+                <div class="icons-container">
+                    <a href="mailto:admin@Satynails.org">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+0111829368">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="https://wa.me/+27656481286?text=Hey%20SATY%20Nails,%20I've%20got%20a%20question%20under%20your%20nail%20category">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                <h4>Email: admin@Satynails.org <br>Telephone: 0111829368 <br> WhatsApp: +27656481286</h4>
+            </div>
+            
+            <!-- Embed Google Maps Location -->
+            <h2>Visit Our Location!!</h2>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d27555.551335536425!2d27.6618771!3d-32.9009009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1694607632758!5m2!1sen!2s" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 SATY Information. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
