@@ -33,7 +33,8 @@
             padding: 20px;
             border-radius: 25px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 450px;
+            width: 90%; /* Changed from fixed to percentage width for responsiveness */
+            max-width: 450px; /* Ensures it doesn't get too wide on larger screens */
             margin-top: 70px;
         }
         .register-container h2 {
@@ -45,7 +46,7 @@
             margin-bottom: 18px;
         }
         .register-container input {
-            width: 90%;
+            width: 100%; /* Adjusted to 100% for full-width on mobile */
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ddd;
@@ -72,7 +73,6 @@
             text-align: center;
             text-decoration: none;
         }
-
         .register-container .register-button {
             background-color: #000000;
             text-align: center;
@@ -84,6 +84,26 @@
         .button-group {
             display: flex;
             justify-content: space-between;
+        }
+
+        /* Responsive Styles for Mobile */
+        @media (max-width: 600px) {
+            .register-container {
+                width: 90%; /* Maintain responsive width */
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
+            .register-container input {
+                width: 100%; /* Ensure inputs are full-width */
+            }
+            .button-group {
+                flex-direction: column; /* Stack buttons vertically on mobile */
+                align-items: stretch;
+            }
+            .register-container .login-button, .register-container .register-button {
+                width: 100%; /* Make buttons full-width */
+                margin-right: 0;
+                margin-bottom: 10px; /* Add space between buttons */
+            }
         }
     </style>
 </head>
@@ -102,8 +122,10 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="***************" required>
 
-            <a href="homepage.html" class="login-button">Login</a>
-            <a href="register.html" class="register-button">Register</a>
+            <div class="button-group">
+                <a href="homepage.html" class="login-button">Login</a>
+                <a href="register.html" class="register-button">Register</a>
+            </div>
         </form>
     </div>
 
