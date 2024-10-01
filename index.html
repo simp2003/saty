@@ -22,11 +22,18 @@
             background-color: rgba(179, 0, 110, 0.8);
             color: #000;
             text-align: left;
-            padding: 15px 0;
+            padding: 15px;
             position: absolute;
             top: 0;
             left: 0;
             border-bottom: 2px solid #fff;
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 50px; /* Adjust the height of the logo */
+            opacity: 0.8; /* Make the logo slightly transparent */
+            margin-right: 15px; /* Space between logo and the heading */
         }
         .register-container {
             background-color: rgba(179, 0, 110, 0.8);
@@ -93,14 +100,14 @@
                 padding: 15px; /* Adjust padding for smaller screens */
             }
             .register-container input {
-                width: 90%; /* Ensure inputs are full-width */
+                width: 95%; /* Ensure inputs are full-width */
             }
             .button-group {
                 flex-direction: column; /* Stack buttons vertically on mobile */
                 align-items: stretch;
             }
             .register-container .login-button, .register-container .register-button {
-                width: 100%; /* Make buttons full-width */
+                width: 95%; /* Make buttons full-width */
                 margin-right: 0;
                 margin-bottom: 10px; /* Add space between buttons */
             }
@@ -110,6 +117,7 @@
 <body>
     
     <header>
+        <img src="IMG-20240911-WA0008.jpg" alt="Company Logo"> <!-- Replace 'logo.png' with the path to your logo -->
         <h1>SATY Nails</h1>
     </header>
 
