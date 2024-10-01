@@ -25,10 +25,10 @@
             border-radius: 25px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 450px;
-            margin-top: 100px; /* Adjust to account for the header height */
-            position: relative; /* Ensure the container adjusts below the header */
+            position: absolute; /* Changed to absolute for positioning */
+            top: 20px; /* Adjust this value to move the container down if needed */
+            left: 20px; /* Adjust this value to move the container right if needed */
             z-index: 1; /* Ensure it stays above the background */
-            margin-left: 430px;
         }
 
         .register-container h2 {
@@ -88,7 +88,8 @@
         @media (max-width: 600px) {
             .register-container {
                 width: 90%;
-                margin-top: 70px; /* Adjust for smaller header */
+                top: 10px; /* Adjust for smaller header */
+                left: 10px; /* Adjust for smaller screens */
             }
             header .logo {
                 /* width: 80px; Adjust logo size for smaller screens */
