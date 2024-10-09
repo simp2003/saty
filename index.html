@@ -176,7 +176,7 @@
         // Function to validate login details
         function validateLogin() {
             const usernameInput = document.getElementById('username').value;
-            const passwordInput = document.getElementById('password').value;
+            const passwordInput = document.getElementById('Password').value;
             const errorMessage = document.getElementById('error-message');
 
             // Clear any previous error messages
@@ -185,7 +185,7 @@
             // Fetch data from Airtable to validate login
             fetch(apiUrl, {
                 headers: {
-                    Authorization: `Bearer ${apiKey}`
+                    Authorization: `Bearer ${patOauxVg2ZhkKcsD}`
                 }
             })
             .then(response => response.json())
@@ -194,10 +194,10 @@
 
                 // Loop through Airtable records to find a matching username and password
                 data.records.forEach(record => {
-                    const recordUsername = record.fields.Username; // Assuming 'Username' field exists in Airtable
+                    const recordUsername = record.fields.username; // Assuming 'Username' field exists in Airtable
                     const recordPassword = record.fields.Password; // Assuming 'Password' field exists in Airtable
 
-                    if (recordUsername === usernameInput && recordPassword === passwordInput) {
+                    if (recordusername === usernameInput && recordPassword === PasswordInput) {
                         validUser = true;
                     }
                 });
