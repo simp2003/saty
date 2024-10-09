@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
             margin: 0;
             color: #070707;
         }
+
         header {
             width: 100%;
             background-color: rgba(179, 0, 110, 0.8);
@@ -30,36 +32,44 @@
             display: flex;
             align-items: center;
         }
+
         header img {
-            height: 50px; /* Adjust the height of the logo */
-            opacity: 0.8; /* Make the logo slightly transparent */
-            margin-right: 15px; /* Space between logo and the heading */
+            height: 50px;
+            opacity: 0.8;
+            margin-right: 15px;
         }
+
         .register-container {
             background-color: rgba(179, 0, 110, 0.8);
             padding: 20px;
             border-radius: 25px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 90%; /* Changed from fixed to percentage width for responsiveness */
-            max-width: 450px; /* Ensures it doesn't get too wide on larger screens */
+            width: 90%;
+            max-width: 450px;
             margin-top: 70px;
         }
+
         .register-container h2 {
             margin-top: 0;
             font-size: 24px;
         }
+
         .register-container label {
             display: block;
             margin-bottom: 18px;
         }
+
         .register-container input {
-            width: 100%; /* Adjusted to 100% for full-width on mobile */
+            width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
-        .register-container button, .register-container .login-button, .register-button {
+
+        .register-container button,
+        .register-container .login-button,
+        .register-button {
             width: 48%;
             padding: 10px;
             border: none;
@@ -69,66 +79,76 @@
             cursor: pointer;
             margin-right: 4%;
         }
+
         .register-container button {
             background-color: #000000;
         }
+
         .register-container button:hover {
             background-color: #218838;
         }
+
         .register-container .login-button {
             background-color: #000000;
             text-align: center;
             text-decoration: none;
         }
+
         .register-container .register-button {
             background-color: #000000;
             text-align: center;
             text-decoration: none;
         }
+
         .register-container .login-button:hover {
             background-color: #db3ac6;
         }
+
         .button-group {
             display: flex;
             justify-content: space-between;
         }
 
-        /* Responsive Styles for Mobile */
         @media (max-width: 600px) {
             .register-container {
-                width: 90%; /* Maintain responsive width */
-                padding: 15px; /* Adjust padding for smaller screens */
+                width: 90%;
+                padding: 15px;
             }
+
             .register-container input {
-                width: 95%; /* Ensure inputs are full-width */
+                width: 95%;
             }
+
             .button-group {
-                flex-direction: column; /* Stack buttons vertically on mobile */
+                flex-direction: column;
                 align-items: stretch;
             }
-            .register-container .login-button, .register-container .register-button {
-                width: 95%; /* Make buttons full-width */
+
+            .register-container .login-button,
+            .register-container .register-button {
+                width: 95%;
                 margin-right: 0;
-                margin-bottom: 10px; /* Add space between buttons */
+                margin-bottom: 10px;
             }
         }
     </style>
 </head>
+
 <body>
-    
+
     <header>
-        <img src="IMG-20240911-WA0008.jpg" alt="Company Logo"> <!-- Replace 'logo.png' with the path to your logo -->
+        <img src="IMG-20240911-WA0008.jpg" alt="Company Logo">
         <h1>SATY Nails</h1>
     </header>
 
     <div class="register-container">
         <h2>Login</h2>
-        <form id="loginForm" runat="server">
+        <form id="loginForm">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="username" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="***************" required>
+            <input type="password" id="password" name="password" placeholder="*" required>
 
             <div class="button-group">
                 <a href="homepage.html" class="login-button">Login</a>
@@ -137,5 +157,38 @@
         </form>
     </div>
 
+    <!-- Airtable Integration Section -->
+    <div class="data-section">
+        <h2>Airtable Data</h2>
+        <div id="data-container"></div>
+    </div>
+
+    <script>
+        // Replace these with your API key and Base ID
+        const apiKey = 'SATY@2004';
+        const baseId = 'patOauxVg2ZhkKcsD.77a58fa62788f785b3f00fdc2f9339b53161df9958175c8ee6223afad40091c6';
+        const tableName = 'Table 1';
+
+        // Airtable API URL for retrieving records from a specific table
+        const apiUrl = https://api.airtable.com/v0/${patOauxVg2ZhkKcsD.77a58fa62788f785b3f00fdc2f9339b53161df9958175c8ee6223afad40091c6}/${unkn.xlsx};
+
+        // Fetch data from Airtable
+        fetch(apiUrl, {
+            headers: {
+                Authorization: Bearer ${patOauxVg2ZhkKcsD.77a58fa62788f785b3f00fdc2f9339b53161df9958175c8ee6223afad40091c6}
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('data-container');
+            data.records.forEach(record => {
+                const recordElement = document.createElement('p');
+                recordElement.textContent = Record: ${record.fields.Name};
+                container.appendChild(recordElement);
+            });
+        })
+        .catch(error => console.error('Error fetching data from Airtable:', error));
+    </script>
 </body>
+
 </html>
