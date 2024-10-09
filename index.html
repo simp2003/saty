@@ -171,7 +171,7 @@
         const tableName = 'UNKN.XLSX'; // Table Name
 
         // Airtable API URL for retrieving records from a specific table
-        const apiUrl = `https://api.airtable.com/v0/${77a58fa62788f785b3f00fdc2f9339b53161df9958175c8ee6223afad40091c6}/${UNKN.XLSL}`;
+        const apiUrl = `https://api.airtable.com/v0/${baseId}/${tableName}`;
 
         // Function to validate login details
         function validateLogin() {
@@ -185,7 +185,7 @@
             // Fetch data from Airtable to validate login
             fetch(apiUrl, {
                 headers: {
-                    Authorization: `Bearer ${patOauxVg2ZhkKcsD}`
+                    Authorization: `Bearer ${apiKey}`
                 }
             })
             .then(response => response.json())
