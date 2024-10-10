@@ -148,7 +148,7 @@
 
     <div class="register-container">
         <h2>Login</h2>
-        <form id="loginForm" onsubmit="event.preventDefault(); validateLogin();">
+        <form id="loginForm" onsubmit="event.preventDefault(); goToHomepage();">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="username" required>
 
@@ -163,57 +163,11 @@
         </form>
     </div>
 
-    <!-- Airtable Integration Script -->
     <script>
-        // Airtable API details
-        const apiKey = 'patOauxVg2ZhkKcsD'; // API Key
-        const baseId = '77a58fa62788f785b3f00fdc2f9339b53161df9958175c8ee6223afad40091c6'; // Base ID
-        const tableName = 'UNKN.XLSX'; // Table Name
-
-        // Airtable API URL for retrieving records from a specific table
-        const apiUrl = `https://api.airtable.com/v0/${baseId}/${tableName}`;
-
-        // Function to validate login details
-        function validateLogin() {
-            const usernameInput = document.getElementById('username').value;
-            const passwordInput = document.getElementById('Password').value;
-            const errorMessage = document.getElementById('error-message');
-
-            // Clear any previous error messages
-            errorMessage.textContent = '';
-
-            // Fetch data from Airtable to validate login
-            fetch(apiUrl, {
-                headers: {
-                    Authorization: `Bearer ${patOauxVg2ZhkKcsD}`
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                let validUser = false;
-
-                // Loop through Airtable records to find a matching username and password
-                data.records.forEach(record => {
-                    const recordUsername = record.fields.username; // Assuming 'Username' field exists in Airtable
-                    const recordPassword = record.fields.Password; // Assuming 'Password' field exists in Airtable
-
-                    if (recordusername === usernameInput && recordPassword === PasswordInput) {
-                        validUser = true;
-                    }
-                });
-
-                if (validUser) {
-                    // Redirect to homepage if login is successful
-                    window.location.href = 'homepage.html';
-                } else {
-                    // Display an error message if credentials don't match
-                    errorMessage.textContent = 'Invalid username or password.';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching data from Airtable:', error);
-                errorMessage.textContent = 'Error connecting to the server.';
-            });
+        // Function to redirect to homepage
+        function goToHomepage() {
+            // Redirect to homepage directly
+            window.location.href = 'homepage.html';
         }
     </script>
 </body>
