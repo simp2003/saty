@@ -7,24 +7,23 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('IMG-20240911-WA0008.jpg'); /* Correct path to your image */
+            background-image: url('IMG-20240911-WA0008.jpg');
             background-size: cover;
-            background-position: center center; /* Center the background image */
+            background-position: center center;
             margin: 0;
-            color: #000000; /* Optional: change text color to ensure visibility against the background */
+            color: #000000;
         }
 
-       
         .register-container {
-            background-color: rgba(179, 0, 110, 0.8); /* Semi-transparent background for readability */
+            background-color: rgba(179, 0, 110, 0.8);
             padding: 20px;
             border-radius: 25px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 450px;
-            position: absolute; /* Changed to absolute for positioning */
-            top: 20px; /* Adjust this value to move the container down if needed */
-            left: 20px; /* Adjust this value to move the container right if needed */
-            z-index: 1; /* Ensure it stays above the background */
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
         }
 
         .register-container h2 {
@@ -80,25 +79,29 @@
             justify-content: space-between;
         }
 
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
         /* Responsive Styles */
         @media (max-width: 600px) {
             .register-container {
                 width: 90%;
-                top: 10px; /* Adjust for smaller header */
-                left: 10px; /* Adjust for smaller screens */
+                top: 10px;
+                left: 10px;
             }
-            
         }
     </style>
 </head>
 <body>
-   
+
     <div class="register-container">
         <h2>Register</h2>
-        <form id="registerForm" action="/submit-register" method="post">
+        <form id="registerForm" onsubmit="return validateForm(event);">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Name" required>
-            
+
             <label for="surname">Surname</label>
             <input type="text" id="surname" name="surname" placeholder="Surname" required>
 
@@ -107,7 +110,7 @@
 
             <label for="cellphone">Cellphone</label>
             <input type="text" id="cellphone" name="cellphone" placeholder="+27 12 345 6789" required>
-            
+
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="username" required>
 
@@ -116,12 +119,57 @@
 
             <label for="confirm-password">Confirm Password</label>
             <input type="password" id="confirm-password" name="confirm-password" placeholder="***************" required>
-            
+
             <div class="button-group">
                 <button type="submit">Register</button>
                 <a href="index.html" class="cancel-button">Cancel</a>
             </div>
+            <div id="error-message"></div>
         </form>
     </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+            const email = document.getElementById('email').value;
+            const cellphone = document.getElementById('cellphone').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Clear previous error messages
+            errorMessage.innerText = '';
+
+            // Validate email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                errorMessage.innerText = 'Please enter a valid email address.';
+                return false;
+            }
+
+            // Validate cellphone format (example: +27 12 345 6789)
+            const cellphonePattern = /^\+27\s\d{2}\s\d{3}\s\d{4}$/;
+            if (!cellphonePattern.test(cellphone)) {
+                errorMessage.innerText = 'Please enter a valid cellphone number (e.g., +27 12 345 6789).';
+                return false;
+            }
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                errorMessage.innerText = 'Passwords do not match.';
+                return false;
+            }
+
+            // If all validations pass, alert and redirect to the login page
+            alert('Registration successful! Redirecting to login page...');
+            window.location.href = 'index.html'; // Redirect to login page
+
+            return true; // Allow form submission (this line will not be reached due to the redirect)
+        }
+    </script>
 </body>
 </html>
