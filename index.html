@@ -166,10 +166,19 @@
     <script>
         // Function to redirect to homepage
         function goToHomepage() {
-            // Show success message
-            alert('Successfully logged in!');
-            // Redirect to homepage
-            window.location.href = 'homepage.html';
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if credentials are correct
+            if (username === 'Simphiwe' && password === 'Nick@1') {
+                // Show success message
+                alert('Successfully logged in!');
+                // Redirect to homepage
+                window.location.href = 'homepage.html';
+            } else {
+                // Show error message
+                document.getElementById('error-message').innerText = 'Invalid username or password. Please try again.';
+            }
         }
     </script>
 </body>
