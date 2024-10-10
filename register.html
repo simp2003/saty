@@ -139,13 +139,13 @@
                 alert('Please enter a valid email address.');
                 return false;
             }
+// Validate cellphone format (either +27123456789 or 0769982929)
+const cellphonePattern = /^(?:\+27\s\d{2}\s\d{3}\s\d{4}|0\d{9})$/;
+if (!cellphonePattern.test(cellphone)) {
+    alert('Please enter a valid cellphone number (e.g., +27123456789 or 0769982929).');
+    return false;
+}
 
-            // Validate cellphone format (example: +27 12 345 6789)
-            const cellphonePattern = /^\+27\s\d{2}\s\d{3}\s\d{4}$/;
-            if (!cellphonePattern.test(cellphone)) {
-                alert('Please enter a valid cellphone number (e.g., +27 12 345 6789).');
-                return false;
-            }
 
             // Check if passwords match
             if (password !== confirmPassword) {
