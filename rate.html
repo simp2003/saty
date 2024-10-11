@@ -12,8 +12,35 @@
             background-color: #ddafd2;
             color: #070707;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            background-color: #a2005c;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
             align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            background-color: #000;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        header a:hover {
+            background-color: rgba(179, 0, 110, 0.8);
         }
 
         .rating-container {
@@ -24,6 +51,7 @@
             text-align: center;
             width: 450px;
             max-width: 100%;
+            margin: auto;
         }
 
         h2 {
@@ -48,13 +76,14 @@
             display: none;
         }
 
-        .stars input:checked ~ label,
-        .stars input:hover ~ label {
-            color: #f5c518;
+        .stars label:hover,
+        .stars label:hover ~ label,
+        .stars input:checked ~ label {
+            color: #f5c518; /* Yellow color for hovered or selected stars */
         }
 
-        .stars input:checked ~ label:nth-child(-n+5) ~ label {
-            color: #fff;
+        .stars input:checked ~ label {
+            color: #f5c518; /* Keep the selected stars yellow */
         }
 
         .comment-box {
@@ -102,6 +131,17 @@
             width: 100%;
         }
 
+        footer {
+            background-color: #a2005c;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
         @media (max-width: 600px) {
             .rating-container {
                 width: 70%;
@@ -112,6 +152,13 @@
 </head>
 <body>
 
+    <!-- Header with Home Button -->
+    <header>
+        <h1>Rate Our Service</h1>
+        <a href="homepage.html">Home</a> <!-- Add the correct link to your homepage -->
+    </header>
+
+    <!-- Rating Form -->
     <div class="rating-container">
         <h2>Rate Our Service</h2>
         <form id="ratingForm" action="https://formspree.io/f/xgvwbzrl" method="POST">
@@ -127,22 +174,31 @@
             </div>
 
             <div class="stars">
-                <input type="radio" name="rating" id="star1" value="5">
-                <label for="star1">&#9733;</label>
-                <input type="radio" name="rating" id="star2" value="4">
-                <label for="star2">&#9733;</label>
+                <input type="radio" name="rating" id="star5" value="5">
+                <label for="star5" title="5 stars">&#9733;</label>
+                
+                <input type="radio" name="rating" id="star4" value="4">
+                <label for="star4" title="4 stars">&#9733;</label>
+                
                 <input type="radio" name="rating" id="star3" value="3">
-                <label for="star3">&#9733;</label>
-                <input type="radio" name="rating" id="star4" value="2">
-                <label for="star4">&#9733;</label>
-                <input type="radio" name="rating" id="star5" value="1">
-                <label for="star5">&#9733;</label>
+                <label for="star3" title="3 stars">&#9733;</label>
+                
+                <input type="radio" name="rating" id="star2" value="2">
+                <label for="star2" title="2 stars">&#9733;</label>
+                
+                <input type="radio" name="rating" id="star1" value="1">
+                <label for="star1" title="1 star">&#9733;</label>
             </div>
             
             <textarea class="comment-box" name="comments" rows="5" placeholder="Leave additional comments (optional)"></textarea>
             <button type="submit" class="submit-button">Submit Rating</button>
         </form>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SATY Nails. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
