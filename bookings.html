@@ -117,6 +117,11 @@
             }
         }
     </style>
+    <script>
+        function showPaymentMessage() {
+            alert("Please do payments at the store after your nails are done.");
+        }
+    </script>
 </head>
 <body>
 
@@ -124,7 +129,7 @@
     <div class="main-content">
         <div class="Booking-container">
             <h2>Book</h2>
-            <form id="Bookingsform" action="https://formspree.io/f/xgvwbzrl" method="POST">
+            <form id="Bookingsform" action="https://formspree.io/f/xgvwbzrl" method="POST" onsubmit="showPaymentMessage()">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Name" required>
                 
@@ -136,6 +141,16 @@
 
                 <label for="cellphone">Cellphone</label>
                 <input type="text" id="cellphone" name="cellphone" placeholder="+27 12 345 6789" required>
+
+                
+                <label for="NailServer">Nail Server</label>
+                <select name="NailServer" id="NailServer" required>
+                    <option value="" disabled selected>Select Nails</option>
+                    <option value="Sokanya">Sokanya</option>
+                    <option value="Amahle">Amahle</option>
+                    <option value="Thabisile">Thabisile</option>
+                    <option value="Yanga">Yanga</option>
+                </select>
 
                 <label for="ServiceType">Service Type</label>
                 <select name="ServiceType" id="ServiceType" required>
@@ -185,6 +200,8 @@
                     <option value="Nail Stickers">Nail Stickers</option>
                     <option value="Nail Stencils">Nail Stencils</option>
                 </select>
+
+                
 
                 <div class="button-container">
                     <button type="submit">Book</button>
